@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { SITE_LOGO_SRC } from "@/lib/media";
 
 const highlights = [
   "Deep understanding of Lucknow real estate market",
@@ -12,22 +14,29 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-bg-light">
+    <section className="py-20 bg-gradient-to-b from-bg-light to-accent/25 border-y border-secondary/10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left - Visual */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+            <div className="gradient-section-dark rounded-2xl h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden border-2 border-secondary/35 ring-gold">
               <div className="text-center text-white p-8">
-                <p className="text-6xl md:text-8xl font-bold font-[family-name:var(--font-heading)] text-secondary mb-4">
+                <Image
+                  src={SITE_LOGO_SRC}
+                  alt="Sivas Realty"
+                  width={150}
+                  height={150}
+                  className="mx-auto mb-6 rounded-xl ring-2 ring-secondary/50 object-contain"
+                />
+                <p className="text-5xl md:text-7xl font-bold font-[family-name:var(--font-heading)] text-secondary mb-4">
                   10+
                 </p>
-                <p className="text-xl md:text-2xl font-light">
+                <p className="text-xl md:text-2xl font-light text-gray-300">
                   Years of Excellence in Real Estate
                 </p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-secondary rounded-xl p-6 text-white shadow-xl hidden md:block">
+            <div className="absolute -bottom-6 -right-6 gradient-gold rounded-xl p-6 text-primary-dark shadow-xl hidden md:block ring-2 ring-secondary-light/50">
               <p className="text-3xl font-bold font-[family-name:var(--font-heading)]">
                 500+
               </p>
@@ -40,9 +49,10 @@ export default function AboutSection() {
             <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-2">
               About {SITE_CONFIG.shortName}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-2">
               Who We Are
             </h2>
+            <div className="gold-divider w-16 mb-6" />
             <p className="text-text-muted leading-relaxed mb-6">
               {SITE_CONFIG.name} is a trusted real estate company that offers a
               wide range of services to meet all your property needs. Whether
@@ -70,7 +80,7 @@ export default function AboutSection() {
 
             <Link
               href="/contact/"
-              className="inline-block gradient-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="inline-block gradient-gold text-primary-dark px-8 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-secondary/30"
             >
               Contact Us
             </Link>

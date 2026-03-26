@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
+import { SITE_LOGO_SRC } from "@/lib/media";
 
 const propertySubLinks = [
   { href: "/properties/residential/", label: "Residential" },
@@ -23,19 +25,19 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="gradient-primary text-white text-sm py-2">
+      <div className="gradient-gold-topbar text-primary-dark text-sm py-2.5 border-b border-secondary-dark/30">
         <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 flex-wrap">
             <a
               href={`tel:${SITE_CONFIG.phones[0]}`}
-              className="flex items-center gap-1 hover:text-secondary transition-colors"
+              className="flex items-center gap-1 font-medium hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
               {SITE_CONFIG.phones[0]}
             </a>
             <a
               href={`tel:${SITE_CONFIG.phones[1]}`}
-              className="flex items-center gap-1 hover:text-secondary transition-colors"
+              className="flex items-center gap-1 font-medium hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
               {SITE_CONFIG.phones[1]}
@@ -43,30 +45,35 @@ export default function Header() {
           </div>
           <a
             href={`mailto:${SITE_CONFIG.email}`}
-            className="flex items-center gap-1 hover:text-secondary transition-colors"
+            className="flex items-center gap-1 font-medium hover:text-white transition-colors break-all max-w-full sm:max-w-none"
           >
-            <Mail className="w-3.5 h-3.5" />
+            <Mail className="w-3.5 h-3.5 shrink-0" />
             {SITE_CONFIG.email}
           </a>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
+      <header className="bg-bg-light shadow-md sticky top-0 z-50 border-b-2 border-secondary/25">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-[family-name:var(--font-heading)]">
-                  S
-                </span>
-              </div>
-              <div>
+            <Link href="/" className="flex items-center gap-2 shrink-0">
+              <Image
+                src={SITE_LOGO_SRC}
+                alt="Sivas Realty Private Limited"
+                width={60}
+                height={60}
+                className="h-14 w-14 object-contain rounded-lg ring-2 ring-secondary/40"
+                priority
+              />
+              <div className="hidden sm:block">
                 <h1 className="text-lg font-bold text-primary leading-tight font-[family-name:var(--font-heading)]">
-                  Sivas Realty
+                  <span className="text-secondary">Sivas</span> Realty
                 </h1>
-                <p className="text-xs text-text-muted">Private Limited</p>
+                <p className="text-[10px] text-secondary uppercase tracking-[0.2em]">
+                  Private Limited
+                </p>
               </div>
             </Link>
 
@@ -82,18 +89,18 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className="px-4 py-2 text-sm font-medium text-text-dark hover:text-primary transition-colors flex items-center gap-1"
+                      className="px-4 py-2 text-sm font-medium text-text-dark hover:text-secondary transition-colors flex items-center gap-1"
                     >
                       {link.label}
                       <ChevronDown className="w-4 h-4" />
                     </Link>
                     {propertyDropdownOpen && (
-                      <div className="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] border border-gray-100">
+                      <div className="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] border border-secondary/20">
                         {propertySubLinks.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="block px-4 py-2.5 text-sm text-text-dark hover:bg-bg-light hover:text-primary transition-colors"
+                            className="block px-4 py-2.5 text-sm text-text-dark hover:bg-accent hover:text-secondary transition-colors"
                           >
                             {sub.label}
                           </Link>
@@ -105,7 +112,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="px-4 py-2 text-sm font-medium text-text-dark hover:text-primary transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-text-dark hover:text-secondary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -115,7 +122,7 @@ export default function Header() {
                 href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4 gradient-gold text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+                className="ml-4 gradient-gold text-primary-dark px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-secondary/25"
               >
                 Get in Touch
               </a>
@@ -138,7 +145,7 @@ export default function Header() {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 bg-white">
+          <div className="lg:hidden border-t border-secondary/20 bg-white">
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
               {mainLinks.map((link) =>
                 link.label === "Properties" ? (
@@ -146,7 +153,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-sm font-medium text-text-dark hover:bg-bg-light rounded-lg"
+                      className="block px-4 py-3 text-sm font-medium text-text-dark hover:bg-accent rounded-lg"
                     >
                       All Properties
                     </Link>
@@ -155,7 +162,7 @@ export default function Header() {
                         key={sub.href}
                         href={sub.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block px-8 py-2.5 text-sm text-text-muted hover:bg-bg-light rounded-lg"
+                        className="block px-8 py-2.5 text-sm text-text-muted hover:bg-accent hover:text-secondary rounded-lg"
                       >
                         {sub.label}
                       </Link>
@@ -166,7 +173,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-sm font-medium text-text-dark hover:bg-bg-light rounded-lg"
+                    className="block px-4 py-3 text-sm font-medium text-text-dark hover:bg-accent rounded-lg"
                   >
                     {link.label}
                   </Link>
@@ -176,7 +183,7 @@ export default function Header() {
                 href={`https://wa.me/${SITE_CONFIG.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center gradient-gold text-white px-5 py-3 rounded-lg text-sm font-semibold mt-4"
+                className="block text-center gradient-gold text-primary-dark px-5 py-3 rounded-lg text-sm font-semibold mt-4"
               >
                 Get in Touch on WhatsApp
               </a>

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2, Target, Eye, Award, Users, Shield, Handshake } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 import ContactCTA from "@/components/ContactCTA";
 import Testimonials from "@/components/Testimonials";
 import { SITE_CONFIG } from "@/lib/constants";
+import { SITE_LOGO_SRC } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -51,12 +53,19 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary to-primary-light rounded-2xl h-[450px] flex items-center justify-center">
+              <div className="gradient-section-dark rounded-2xl h-[450px] flex items-center justify-center border-2 border-secondary/30 ring-gold">
                 <div className="text-center text-white p-8">
-                  <p className="text-7xl md:text-9xl font-bold font-[family-name:var(--font-heading)] text-secondary mb-4">
+                  <Image
+                    src={SITE_LOGO_SRC}
+                    alt="Sivas Realty"
+                    width={120}
+                    height={120}
+                    className="mx-auto mb-6 rounded-xl ring-2 ring-secondary/50 object-contain"
+                  />
+                  <p className="text-7xl md:text-9xl font-bold font-[family-name:var(--font-heading)] text-gradient mb-4">
                     10+
                   </p>
-                  <p className="text-xl md:text-2xl font-light">
+                  <p className="text-xl md:text-2xl font-light text-gray-400">
                     Years of Trust in Real Estate
                   </p>
                 </div>
@@ -67,9 +76,10 @@ export default function AboutPage() {
               <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-2">
                 Our Story
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-2">
                 About {SITE_CONFIG.name}
               </h2>
+              <div className="gold-divider w-16 mb-6" />
               <p className="text-text-muted leading-relaxed mb-5">
                 {SITE_CONFIG.name} is a premier real estate company based in
                 Lucknow that offers a comprehensive range of services to meet
@@ -98,11 +108,11 @@ export default function AboutPage() {
                   { value: "50+", label: "Projects" },
                   { value: "10+", label: "Years" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center bg-bg-light rounded-xl p-4">
-                    <p className="text-2xl font-bold text-primary font-[family-name:var(--font-heading)]">
+                  <div key={stat.label} className="text-center gradient-section-dark rounded-xl p-4 border border-secondary/30">
+                    <p className="text-2xl font-bold text-gradient font-[family-name:var(--font-heading)]">
                       {stat.value}
                     </p>
-                    <p className="text-xs text-text-muted mt-1">
+                    <p className="text-xs text-gray-400 mt-1">
                       {stat.label}
                     </p>
                   </div>
@@ -114,11 +124,11 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-bg-light">
+      <section className="py-20 bg-gradient-to-b from-accent/40 to-bg-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-secondary/10">
+              <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center mb-6 shadow-md shadow-secondary/20">
                 <Target className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-4">
@@ -133,8 +143,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-secondary/10">
+              <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center mb-6 shadow-md shadow-secondary/20">
                 <Eye className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-text-dark font-[family-name:var(--font-heading)] mb-4">
@@ -161,15 +171,16 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)]">
               Our Core Values
             </h2>
+            <div className="gold-divider w-20 mx-auto mt-4" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((v) => (
               <div
                 key={v.title}
-                className="text-center bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow"
+                className="text-center bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow border border-transparent hover:border-secondary/20"
               >
-                <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-5">
+                <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center mx-auto mb-5 shadow-md shadow-secondary/20">
                   <v.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="font-bold text-text-dark mb-3 font-[family-name:var(--font-heading)]">
@@ -185,7 +196,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-bg-light">
+      <section className="py-20 bg-bg-light border-y border-secondary/10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-2">
@@ -194,6 +205,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-text-dark font-[family-name:var(--font-heading)]">
               The Sivas Realty Advantage
             </h2>
+            <div className="gold-divider w-20 mx-auto mt-4" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -207,7 +219,7 @@ export default function AboutPage() {
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 bg-white rounded-xl p-5 shadow-sm"
+                className="flex items-center gap-3 bg-white rounded-xl p-5 shadow-sm border border-secondary/10"
               >
                 <CheckCircle2 className="w-6 h-6 text-secondary shrink-0" />
                 <span className="text-text-dark font-medium text-sm">

@@ -171,6 +171,7 @@ export const TESTIMONIALS = [
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About Us" },
+  { href: "/leadership/", label: "Leadership" },
   { href: "/properties/", label: "Properties" },
   { href: "/properties/residential/", label: "Residential" },
   { href: "/properties/commercial/", label: "Commercial" },

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -64,6 +64,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#c9a227",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -90,7 +94,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"

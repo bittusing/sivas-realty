@@ -57,7 +57,7 @@ export default function ContactForm() {
             required
             value={form.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm"
             placeholder="Your name"
           />
         </div>
@@ -75,7 +75,7 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm"
             placeholder="+91 XXXXXXXXXX"
           />
         </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm"
             placeholder="you@example.com"
           />
         </div>
@@ -114,7 +114,7 @@ export default function ContactForm() {
             required
             value={form.city}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm"
             placeholder="Lucknow"
           />
         </div>
@@ -132,7 +132,7 @@ export default function ContactForm() {
           name="propertyType"
           value={form.propertyType}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm bg-white"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm bg-white"
         >
           <option value="">Select property type</option>
           <option value="Residential">Residential</option>
@@ -155,14 +155,14 @@ export default function ContactForm() {
           rows={4}
           value={form.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm resize-none"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all text-sm resize-none"
           placeholder="Tell us about your requirements..."
         />
       </div>
 
       <button
         type="submit"
-        className="w-full gradient-gold text-white py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+        className="w-full gradient-gold text-primary-dark py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-md shadow-secondary/25"
       >
         <Send className="w-4 h-4" />
         Send via WhatsApp
